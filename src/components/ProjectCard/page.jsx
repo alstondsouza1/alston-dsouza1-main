@@ -5,7 +5,27 @@ import { Layout, GitHub } from 'react-feather';
 
 export default function Projects() {
     const projects = [
-        
+        {
+            title: "RateMyCourse",
+            description: "RateMyCourse is a modern, full-stack web application that allows users to browse, review, and discover golf courses across the United States. Inspired by platforms like RateMyDorm, it features user authentication with Google and passwordless email login, a responsive UI, and dynamic data pulled from Firebase Firestore. Users can view popular states and courses, and leave or read reviews — with support for user dashboards and post management.",
+            tags: ["React(Vite), Tailwind CSS, Firebase(Firestore & Auth), Vercel"],
+            github: "https://github.com/alstondsouza1/rate-my-course",
+            project_site: "https://rate-my-course-delta.vercel.app/",
+        },
+        {
+            title: "Salamander Tracker",
+            description: "Built a full-stack ecological video processing pipeline in collaboration with The Wilburn Lab at The Ohio State University. This research tool detects salamanders in wildlife footage using binarization, centroid tracking, and Java video processing, exposed through a React + Express interface. The project supports researchers in studying amphibian behavior over time using Dockerized microservices and CSV-based tracking data.",
+            tags: ["React", "Next.js", "Express", "Java", "Docker", "FFmpeg", "Material UI"],
+            github: "https://github.com/alstondsouza1/salamander-project",
+            project_site: "",
+        },
+        {
+            title: "Green or Not",
+            description: "Green or Not is a web application designed to assess the sustainability of products sold on Amazon. It works by scraping product detail from Amazon pages and calculating a sustainability score based on eco-friendly keywords and recognized certifications. A custom tree image visually reflects the products “green” score, helping users quickly gauge the environmental impact of a product.",
+            tags: ["NextJS, Tailwind CSS, Axios, Cheerios"],
+            github: "https://github.com/alstondsouza1/green-or-not",
+            project_site: "https://green-or-not-eight.vercel.app/",
+        }
     ];
 
     // Card Animation to Fade in
