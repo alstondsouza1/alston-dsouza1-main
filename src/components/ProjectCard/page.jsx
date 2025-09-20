@@ -10,7 +10,7 @@ export default function Projects() {
             description: "RateMyCourse is a modern, full-stack web application that allows users to browse, review, and discover golf courses across the United States. Inspired by platforms like RateMyDorm, it features user authentication with Google and passwordless email login, a responsive UI, and dynamic data pulled from Firebase Firestore. Users can view popular states and courses, and leave or read reviews — with support for user dashboards and post management.",
             tags: ["React(Vite), Tailwind CSS, Firebase(Firestore & Auth), Vercel"],
             github: "https://github.com/alstondsouza1/rate-my-course",
-            project_site: "https://rate-my-course-delta.vercel.app/",
+            project_site: "https://rate-my-course1.vercel.app/",
         },
         {
             title: "Salamander Tracker",
@@ -24,7 +24,7 @@ export default function Projects() {
             description: "Green or Not is a web application designed to assess the sustainability of products sold on Amazon. It works by scraping product detail from Amazon pages and calculating a sustainability score based on eco-friendly keywords and recognized certifications. A custom tree image visually reflects the products “green” score, helping users quickly gauge the environmental impact of a product.",
             tags: ["NextJS, Tailwind CSS, Axios, Cheerios"],
             github: "https://github.com/alstondsouza1/green-or-not",
-            project_site: "https://green-or-not-eight.vercel.app/",
+            project_site: "https://green-or-not2.vercel.app/",
         }
     ];
 

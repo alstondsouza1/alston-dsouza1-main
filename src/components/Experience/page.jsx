@@ -6,6 +6,20 @@ export default function Experience() {
             <h2 className="text-3xl font-bold mb-12 text-white">Experience</h2>
             <div className="relative space-y-12 ml-6 border-l-2 border-gray-400 ">
 
+                {/* Backend Engineer Intern  */}
+                <div className="relative pl-8">
+                {/* Bullet */}
+                <div className="absolute -left-[11px] top-1 w-5 h-5 bg-gray-700 border-2 border-white rounded-full"></div>
+                    <div className="bg-gray-50 p-6 rounded-md shadow border text-black overflow-hidden">
+                        <h3 className="text-lg font-semibold">Spotify</h3>
+                        <p className="italic text-sm text-gray-500">Backend Engineer Intern | Jun 2025 - Sep 2025</p>
+                        <ul className="list-disc">
+                            <li>Enhanced payment admin panel features by integrating new data retrieval modules, improving transactional insights for internal teams using Java, SQL, and Spring MVC.</li>
+                            <li>Boosted application performance and user satisfaction by implementing design pattern and unit testing workflows, based on insights from stakeholder interviews using Core Java and TypeScript.</li>
+                        </ul>
+                    </div>
+                </div>
+
                 {/* Full-Stack Web Developer Intern  */}
                 <div className="relative pl-8">
                 {/* Bullet */}

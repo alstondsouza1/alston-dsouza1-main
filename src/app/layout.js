@@ -2,6 +2,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import { Space_Mono } from "next/font/google";
 import "../styles/globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 
 const geistSans = Geist({
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={spaceMono.className}>
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );

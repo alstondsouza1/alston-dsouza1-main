@@ -18,7 +18,7 @@ export default function HeroSection() {
       >
         <Image
           src="/images/me.jpg"
-          alt="Picture of Benedict"
+          alt="Picture of Alston"
           fill
           priority
           className="object-cover"
