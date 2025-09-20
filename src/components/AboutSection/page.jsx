@@ -61,11 +61,11 @@ export default function AboutSection(){
                 <div className="text-gray-500">
                     <h2 className="text-2xl font-semibold mb-2">A little bit about me...</h2>
                     <p className="mb-4">
-                    I am a software development student at Green River College, passionate about building full-stack applications that enhance real-world usability. With experience in web development, DevOps, and AI-integrated systems, I’ve built tools used by students, staff, and even researchers at The Ohio State University.
+                    I am a software development student at Green River College with a passion for building clean, user-friendly web applications. I enjoy solving real-world problems through code and have hands-on experience with technologies like React, Next.js, Tailwind CSS, Java, and Docker.
                     </p>
                     
                     <p className="mb-4">
-                    I’ve contributed to AI chatbot systems, video analysis pipelines, and IT infrastructure support. I enjoy solving challenging problems and love building scalable, user-focused software.
+                    Previously, I worked as a Backend Engineering Intern at Spotify and a Full-Stack Intern at Green River College. I've developed admin panels, integrated AI chatbots, and contributed to research tools used by institutions like The Ohio State University. These experiences taught me the value of precision, collaboration, and writing scalable, maintainable code.
                     </p>
 
                     <p className="mb-4">
