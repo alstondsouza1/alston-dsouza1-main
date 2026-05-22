@@ -16,7 +16,7 @@ export default function AboutSection() {
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-10 md:flex-row">
         <div className="w-full flex-1 space-y-4">
           <InfoRow label="Name" value="Alston Dsouza" />
-          <InfoRow label="Role" value="Software Development Student" />
+          <InfoRow label="Role" value="Recent Software Development Graduate" />
           <InfoRow label="Location" value="Seattle, Washington" />
           <InfoRow label="School" value="Green River College" />
 
@@ -57,11 +57,11 @@ export default function AboutSection() {
             </h2>
 
             <p className="mb-4 leading-relaxed">
-              I am a recent software devlopment graduate from Green River College with a
-              passion for building clean, user-friendly web applications. I enjoy
-              solving real-world problems through code and have hands-on
-              experience with React, Next.js, Java, Node.js, Express, MySQL,
-              Docker, and AI-powered tools.
+              I am a recent software development graduate from Green River
+              College with a passion for building clean, user-friendly web
+              applications. I enjoy solving real-world problems through code and
+              have hands-on experience with React, Next.js, Java, Node.js,
+              Express, MySQL, Docker, and AI-powered tools.
             </p>
 
             <p className="mb-4 leading-relaxed">

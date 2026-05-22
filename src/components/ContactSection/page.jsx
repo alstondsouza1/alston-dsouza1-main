@@ -1,16 +1,17 @@
 "use client";
 
 import emailjs from "@emailjs/browser";
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-
-const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
 export default function Contact() {
   const formRef = useRef(null);
+  const recaptchaRef = useRef(null);
+
+  const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+  const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+  const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+  const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
   const [formData, setFormData] = useState({
     name: "",
@@ -19,18 +20,27 @@ export default function Contact() {
     message: "",
   });
 
-  const [captchaToken, setCaptchaToken] = useState(null);
+  const [captchaToken, setCaptchaToken] = useState("");
   const [status, setStatus] = useState("");
   const [isSending, setIsSending] = useState(false);
 
-  const isEmailReady = SERVICE_ID && TEMPLATE_ID && PUBLIC_KEY;
-  const isCaptchaReady = RECAPTCHA_SITE_KEY;
-
   const handleChange = (e) => {
-    setFormData((currentData) => ({
-      ...currentData,
+    setFormData((current) => ({
+      ...current,
       [e.target.name]: e.target.value,
     }));
+  };
+
+  const resetForm = () => {
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+
+    setCaptchaToken("");
+    recaptchaRef.current?.reset();
   };
 
   const handleSubmit = async (e) => {
@@ -49,29 +59,38 @@ export default function Contact() {
       return;
     }
 
-    if (isCaptchaReady && !captchaToken) {
-      setStatus("Please complete the CAPTCHA.");
+    if (!serviceId || !templateId || !publicKey) {
+      setStatus("EmailJS is not configured yet.");
       return;
     }
 
-    if (!isEmailReady) {
-      setStatus("Email service is not configured yet.");
+    if (!recaptchaSiteKey) {
+      setStatus("reCAPTCHA site key is missing.");
+      return;
+    }
+
+    if (!captchaToken) {
+      setStatus("Please complete the CAPTCHA.");
       return;
     }
 
     try {
       setIsSending(true);
 
-      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, {
-        publicKey: PUBLIC_KEY,
+      await emailjs.sendForm(serviceId, templateId, formRef.current, {
+        publicKey,
       });
 
       setStatus("Message sent successfully!");
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      setCaptchaToken(null);
+      resetForm();
     } catch (error) {
-      console.error("EmailJS Error:", error);
-      setStatus("Something went wrong. Please try again.");
+      console.error("EmailJS Full Error:", error);
+
+      setStatus(
+        error?.text
+          ? `EmailJS error: ${error.text}`
+          : "Something went wrong. Please try again."
+      );
     } finally {
       setIsSending(false);
     }
@@ -102,7 +121,7 @@ export default function Contact() {
               value={formData.name}
               placeholder="Name"
               onChange={handleChange}
-              className="w-full rounded border border-gray-600 bg-gray-800 p-3 text-white outline-none transition focus:border-white"
+              className="w-full rounded border border-gray-600 bg-gray-800 p-3 text-white outline-none transition placeholder:text-gray-400 focus:border-white"
               required
             />
 
@@ -112,7 +131,7 @@ export default function Contact() {
               value={formData.email}
               placeholder="Email"
               onChange={handleChange}
-              className="w-full rounded border border-gray-600 bg-gray-800 p-3 text-white outline-none transition focus:border-white"
+              className="w-full rounded border border-gray-600 bg-gray-800 p-3 text-white outline-none transition placeholder:text-gray-400 focus:border-white"
               required
             />
           </div>
@@ -123,7 +142,7 @@ export default function Contact() {
             value={formData.subject}
             placeholder="Subject"
             onChange={handleChange}
-            className="w-full rounded border border-gray-600 bg-gray-800 p-3 text-white outline-none transition focus:border-white"
+            className="w-full rounded border border-gray-600 bg-gray-800 p-3 text-white outline-none transition placeholder:text-gray-400 focus:border-white"
             required
           />
 
@@ -133,23 +152,22 @@ export default function Contact() {
             placeholder="Message"
             rows="6"
             onChange={handleChange}
-            className="w-full rounded border border-gray-600 bg-gray-800 p-4 text-white outline-none transition focus:border-white"
+            className="w-full rounded border border-gray-600 bg-gray-800 p-4 text-white outline-none transition placeholder:text-gray-400 focus:border-white"
             required
           />
 
-          {isCaptchaReady ? (
-            <ReCAPTCHA
-              sitekey={RECAPTCHA_SITE_KEY}
-              onChange={(token) => setCaptchaToken(token)}
-              onExpired={() => setCaptchaToken(null)}
-            />
-          ) : (
-            <p className="text-sm text-yellow-300">
-              CAPTCHA is not configured yet.
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            sitekey={recaptchaSiteKey}
+            onChange={(token) => setCaptchaToken(token || "")}
+            onExpired={() => setCaptchaToken("")}
+          />
+
+          {status && (
+            <p className="rounded border border-gray-700 bg-gray-800 p-3 text-sm text-gray-100">
+              {status}
             </p>
           )}
-
-          {status && <p className="text-sm text-gray-200">{status}</p>}
 
           <button
             type="submit"
