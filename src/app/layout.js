@@ -1,42 +1,38 @@
-// src/app/layout.js
-import { Geist, Geist_Mono } from "next/font/google";
 import { Space_Mono } from "next/font/google";
 import "../styles/globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 const spaceMono = Space_Mono({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-space-mono',
-})
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-space-mono",
+});
 
 export const metadata = {
-  title: "Alston Dsouza's Portfolio",
-  keywords: "Alston Dsouza, Portfolio, Web Developer, Software Engineer, Next.js, React, JavaScript, TypeScript, CSS, HTML",
-  authors: [{ name: "Alston Dsouza", url: "" }],
-  description: "Showcasing the projects and skills of Alston Dsouza, a web developer and software engineer.",
+  title: "Alston Dsouza | Software Developer",
+  description:
+    "Portfolio of Alston Dsouza, a recent software development graduate building full-stack web apps, AI tools, and backend systems.",
+  keywords: [
+    "Alston Dsouza",
+    "Software Developer",
+    "Portfolio",
+    "React",
+    "Next.js",
+    "Java",
+    "Node.js",
+    "Docker",
+    "AI",
+  ],
+  authors: [{ name: "Alston Dsouza" }],
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={spaceMono.className}>
-        {children}
-        <SpeedInsights />
-        <Analytics />
-      </body>
+      <body className={spaceMono.className}>{children}</body>
+      <SpeedInsights />
+      <Analytics />
     </html>
   );
 }

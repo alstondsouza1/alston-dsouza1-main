@@ -1,87 +1,100 @@
-'use client'; // Needed if you're using Next.js App Router
+"use client";
 
-import { motion } from 'framer-motion';
-import { Instagram, Linkedin, GitHub } from 'react-feather';
+import { motion } from "framer-motion";
+import { Instagram, Linkedin, GitHub } from "react-feather";
 
-export default function AboutSection(){
+export default function AboutSection() {
+  return (
+    <motion.section
+      id="about"
+      className="bg-white px-6 py-16"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-10 md:flex-row">
+        <div className="w-full flex-1 space-y-4">
+          <InfoRow label="Name" value="Alston Dsouza" />
+          <InfoRow label="Role" value="Software Development Student" />
+          <InfoRow label="Location" value="Seattle, Washington" />
+          <InfoRow label="School" value="Green River College" />
 
-    return(
-        <motion.section
-            id="about"
-            className="bg-white px-6 py-16"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-        >
-            <div className="flex flex-col md:flex-row justify-between gap-10 max-w-7xl mx-auto items-center">
-                {/* Personal Info on the left */}
-                <div className="flex-1 space-y-4">
-                    {/* Info */}
-                    <div className="space-y-4">
+          <div className="flex gap-6 pt-4 text-gray-700">
+            <a
+              href="https://www.instagram.com/namastaythefuckawaybitch/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <Instagram className="transition hover:text-pink-500" />
+            </a>
 
-                        <div className="flex justify-between border-b border-gray-300 pb-2">
-                            <span className="text-black font-semibold">Name:</span>
-                            <span className="text-gray-500">Alston Dsouza</span>
-                        </div>
+            <a
+              href="https://www.linkedin.com/in/alstondsouza02"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="transition hover:text-blue-600" />
+            </a>
 
-                        <div className="flex justify-between border-b border-gray-300 pb-2">
-                            <span className="text-black font-semibold">Age:</span>
-                            <span className="text-gray-500">23</span>
-                        </div>
+            <a
+              href="https://github.com/alstondsouza1"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <GitHub className="transition hover:text-purple-600" />
+            </a>
+          </div>
+        </div>
 
-                        <div className="flex justify-between border-b border-gray-300 pb-2">
-                            <span className="text-black font-semibold">Location:</span>
-                            <span className="text-gray-500">Seattle, Washington</span>
-                        </div>
+        <div className="w-full flex-1 space-y-6 text-gray-600">
+          <div>
+            <h2 className="mb-4 text-3xl font-bold text-gray-800">
+              A little bit about me...
+            </h2>
 
-                        <div className="flex justify-between border-b border-gray-300 pb-2">
-                            <span className="text-black font-semibold">School:</span>
-                            <span className="text-gray-500">Green River College</span>
-                        </div>
+            <p className="mb-4 leading-relaxed">
+              I am a recent software devlopment graduate from Green River College with a
+              passion for building clean, user-friendly web applications. I enjoy
+              solving real-world problems through code and have hands-on
+              experience with React, Next.js, Java, Node.js, Express, MySQL,
+              Docker, and AI-powered tools.
+            </p>
 
-                    </div>
+            <p className="mb-4 leading-relaxed">
+              I have worked on full-stack applications, admin dashboards, AI
+              chatbots, RAG tools, and video-processing projects. My experience
+              includes backend development, REST APIs, authentication, database
+              design, testing, and Agile/Scrum collaboration.
+            </p>
 
-                    {/* Socials */}
-                    <div className="flex space-x-6 text-gray-700 text-2xl">
-                        <a href="https://www.instagram.com/namastaythefuckawaybitch/" target="_blank" rel="noopener noreferrer">
-                            <Instagram className="hover:text-blue-300 " />
-                        </a>
-                        <a href="https://www.linkedin.com/in/alstondsouza02" target="_blank" rel="noopener noreferrer">
-                            <Linkedin className="hover:text-blue-600" />
-                        </a>
-                        <a href="https://github.com/alstondsouza1" target="_blank" rel="noopener noreferrer">
-                            <GitHub className="hover:text-purple-600" />
-                        </a>
-                    </div>
-                </div> 
+            <p className="leading-relaxed">
+              Outside of tech, I enjoy coffee, event planning, outdoor sports,
+              and working with diverse teams to create meaningful experiences.
+            </p>
+          </div>
 
-                {/* Right: Bio + Resume */}
-                <div className="flex-1 space-y-6">
-                <div className="text-gray-500">
-                    <h2 className="text-2xl font-semibold mb-2">A little bit about me...</h2>
-                    <p className="mb-4">
-                    I am a software development student at Green River College with a passion for building clean, user-friendly web applications. I enjoy solving real-world problems through code and have hands-on experience with technologies like React, Next.js, Tailwind CSS, Java, and Docker.
-                    </p>
-                    
-                    <p className="mb-4">
-                    Previously, I worked as a Backend Engineering Intern at Spotify and a Full-Stack Intern at Green River College. I've developed admin panels, integrated AI chatbots, and contributed to research tools used by institutions like The Ohio State University. These experiences taught me the value of precision, collaboration, and writing scalable, maintainable code.
-                    </p>
+          <a
+            href="/AlstonDsouza_Resume.pdf"
+            download
+            className="inline-block rounded border border-gray-700 px-6 py-3 font-bold text-gray-800 transition hover:bg-gray-800 hover:text-white"
+          >
+            Download Resume
+          </a>
+        </div>
+      </div>
+    </motion.section>
+  );
+}
 
-                    <p className="mb-4">
-                    Outside of tech, I enjoy outdoor sports, coffee, event planning, and exploring innovative ideas with diverse teams.
-                    </p>
-                </div>
-
-                <a 
-                    href='/AlstonDsouza_Resume.pdf'
-                    download
-                    className="border text-gray-500 px-6 py-3 hover:bg-blue-200 transition cursor-pointer font-bold"
-                >
-                    Download Resume
-                </a>
-                </div>
-            </div>
-        </motion.section>
-    )
+function InfoRow({ label, value }) {
+  return (
+    <div className="flex justify-between gap-6 border-b border-gray-300 pb-3">
+      <span className="font-bold text-black">{label}:</span>
+      <span className="text-right text-gray-500">{value}</span>
+    </div>
+  );
 }

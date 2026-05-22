@@ -1,102 +1,124 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Layout, GitHub } from 'react-feather';
+import { motion } from "framer-motion";
+import { Layout, GitHub } from "react-feather";
+
+const projects = [
+  {
+    title: "Running Start Support Portal",
+    description:
+      "A full-stack student support platform for Green River College Running Start students. It includes searchable FAQs, category navigation, admin content management, JWT authentication, and MySQL-backed data storage.",
+    tags: ["React", "Node.js", "Express", "MySQL", "JWT"],
+    github: "https://github.com/alstondsouza1/Running-start-digital-support",
+    project_site: "",
+  },
+  {
+    title: "Salamander Tracker",
+    description:
+      "A full-stack ecological video processing pipeline for frame-level analysis and centroid tracking. The system connects a React frontend, Node.js backend, Java video processor, and Docker-based workflow.",
+    tags: ["React", "Node.js", "Java", "Docker", "JavaCV"],
+    github: "https://github.com/alstondsouza1/salamander-project",
+    project_site: "",
+  },
+  {
+    title: "Ticket Assistant RAG App",
+    description:
+      "A Retrieval-Augmented Generation chatbot built with Python, REST APIs, and Azure OpenAI to support internal workflow automation and improve response accuracy.",
+    tags: ["Python", "REST APIs", "Azure OpenAI", "RAG"],
+    github: "",
+    project_site: "",
+  },
+  {
+    title: "RateMyCourse",
+    description:
+      "A full-stack web application where users can browse, review, and discover golf courses across the United States with authentication and Firebase data storage.",
+    tags: ["React", "Vite", "Tailwind", "Firebase", "Vercel"],
+    github: "https://github.com/alstondsouza1/rate-my-course",
+    project_site: "https://rate-my-course1.vercel.app/",
+  },
+  {
+    title: "Green or Not",
+    description:
+      "A sustainability web app that analyzes Amazon products and creates a green score based on product details, eco-friendly keywords, and recognized certifications.",
+    tags: ["Next.js", "Tailwind", "Axios", "Cheerio"],
+    github: "https://github.com/alstondsouza1/green-or-not",
+    project_site: "https://green-or-not2.vercel.app/",
+  },
+];
 
 export default function Projects() {
-    const projects = [
-        {
-            title: "RateMyCourse",
-            description: "RateMyCourse is a modern, full-stack web application that allows users to browse, review, and discover golf courses across the United States. Inspired by platforms like RateMyDorm, it features user authentication with Google and passwordless email login, a responsive UI, and dynamic data pulled from Firebase Firestore. Users can view popular states and courses, and leave or read reviews — with support for user dashboards and post management.",
-            tags: ["React(Vite), Tailwind CSS, Firebase(Firestore & Auth), Vercel"],
-            github: "https://github.com/alstondsouza1/rate-my-course",
-            project_site: "https://rate-my-course1.vercel.app/",
-        },
-        {
-            title: "Salamander Tracker",
-            description: "Built a full-stack ecological video processing pipeline in collaboration with The Wilburn Lab at The Ohio State University. This research tool detects salamanders in wildlife footage using binarization, centroid tracking, and Java video processing, exposed through a React + Express interface. The project supports researchers in studying amphibian behavior over time using Dockerized microservices and CSV-based tracking data.",
-            tags: ["React", "Next.js", "Express", "Java", "Docker", "FFmpeg", "Material UI"],
-            github: "https://github.com/alstondsouza1/salamander-project",
-            project_site: "",
-        },
-        {
-            title: "Green or Not",
-            description: "Green or Not is a web application designed to assess the sustainability of products sold on Amazon. It works by scraping product detail from Amazon pages and calculating a sustainability score based on eco-friendly keywords and recognized certifications. A custom tree image visually reflects the products “green” score, helping users quickly gauge the environmental impact of a product.",
-            tags: ["NextJS, Tailwind CSS, Axios, Cheerios"],
-            github: "https://github.com/alstondsouza1/green-or-not",
-            project_site: "https://green-or-not2.vercel.app/",
-        }
-    ];
-
-    // Card Animation to Fade in
-    const container = {
-        hidden: {},
-        show: {
-            transition: {
-                staggerChildren: 0.2, // Delay between each card
-            },
-        },
-    };
-
-    const cardVariants = {
-        hidden: { opacity: 0, y: 20 },
-        show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
-    };
-
   return (
-    <section className="bg-gray-400 px-4 py-10 sm:px-10 sm:py-16 md:px-20 md:py-20" id="projects">
-      <div className="max-w-6xl w-full mx-auto">
-        <h2 className="text-white text-3xl font-bold mb-4">Projects</h2>
+    <section
+      id="projects"
+      className="bg-gray-100 px-4 py-12 sm:px-10 sm:py-16 md:px-20 md:py-20"
+    >
+      <div className="mx-auto max-w-6xl">
+        <h2 className="mb-8 text-3xl font-bold text-gray-800">Projects</h2>
 
-        <motion.div 
-            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{once: true, amount: 0.3}}
+        <motion.div
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            hidden: {},
+            show: {
+              transition: {
+                staggerChildren: 0.15,
+              },
+            },
+          }}
         >
-          {projects.map((project, index) => (
-            <motion.div 
-                key={index} 
-                className="bg-gray-700 text-white p-6 rounded-lg shadow hover:shadow-lg transition will-change-transform"
-                variants={cardVariants}
+          {projects.map((project) => (
+            <motion.article
+              key={project.title}
+              className="flex h-full flex-col rounded-xl bg-gray-800 p-6 text-white shadow transition hover:-translate-y-1 hover:shadow-xl"
+              variants={{
+                hidden: { opacity: 0, y: 25 },
+                show: { opacity: 1, y: 0 },
+              }}
             >
-                <h3 className="text-xl font-semibold mb-4">{project.title}</h3>
-                <p className="text-sm text-gray-300 mb-4 break-words">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                {project.tags.map((tag, idx) => (
-                    <span key={idx} className="bg-gray-700 text-xs rounded-full font-extralight italic">{tag}</span>
+              <h3 className="mb-4 text-xl font-bold">{project.title}</h3>
+
+              <p className="mb-5 flex-1 text-sm leading-relaxed text-gray-300">
+                {project.description}
+              </p>
+
+              <div className="mb-6 flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full bg-gray-700 px-3 py-1 text-xs text-gray-200"
+                  >
+                    {tag}
+                  </span>
                 ))}
-                </div>
-                
-                <div className='mb-2 flex space-x-4'>
-                {/* Project Website Link (only if exists) */}
-                    {project.project_site && (
-                        <a 
-                        href={project.project_site} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="inline-block text-sm text-white hover:underline"
-                        >
-                            <Layout className="hover:text-blue-300 "/>
-                        </a>
-                    )}
+              </div>
 
-                    {/* GitHub Link (only if exists) */}
-                    {project.github && (
-                        <a 
-                        href={project.github} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="inline-block text-sm text-white hover:underline"
-                        >
-                            <GitHub className="hover:text-purple-600"/>
-                        </a>
-                    )}
+              <div className="flex gap-4">
+                {project.project_site && (
+                  <a
+                    href={project.project_site}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${project.title} live site`}
+                  >
+                    <Layout className="transition hover:text-blue-300" />
+                  </a>
+                )}
 
-                </div>
-                
-            </motion.div>
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${project.title} GitHub repository`}
+                  >
+                    <GitHub className="transition hover:text-purple-400" />
+                  </a>
+                )}
+              </div>
+            </motion.article>
           ))}
         </motion.div>
       </div>

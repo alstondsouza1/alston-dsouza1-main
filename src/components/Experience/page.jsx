@@ -1,95 +1,85 @@
-
-export default function Experience() {
-
-    return(
-        <section className="px-4 py-10 sm:px-10 sm:py-16 md:px-20 md:py-20 bg-gray-700">
-            <h2 className="text-3xl font-bold mb-12 text-white">Experience</h2>
-            <div className="relative space-y-12 ml-6 border-l-2 border-gray-400 ">
-
-                {/* Backend Engineer Intern  */}
-                <div className="relative pl-8">
-                {/* Bullet */}
-                <div className="absolute -left-[11px] top-1 w-5 h-5 bg-gray-700 border-2 border-white rounded-full"></div>
-                    <div className="bg-gray-50 p-6 rounded-md shadow border text-black overflow-hidden">
-                        <h3 className="text-lg font-semibold">Spotify</h3>
-                        <p className="italic text-sm text-gray-500">Backend Engineer Intern | Jun 2025 - Sep 2025</p>
-                        <ul className="list-disc">
-                            <li>Enhanced payment admin panel features by integrating new data retrieval modules, improving transactional insights for internal teams using Java, SQL, and Spring MVC.</li>
-                            <li>Boosted application performance and user satisfaction by implementing design pattern and unit testing workflows, based on insights from stakeholder interviews using Core Java and TypeScript.</li>
-                        </ul>
-                    </div>
+const experiences = [
+    {
+      company: "Spotify",
+      role: "Backend Engineer Intern",
+      date: "Jun 2025 – Sep 2025",
+      bullets: [
+        "Designed and developed scalable backend services using Java, Spring Boot, Spring MVC, and SQL.",
+        "Optimized backend performance through design patterns, unit testing, and code refactoring.",
+        "Collaborated with engineers and product stakeholders in Agile sprint cycles.",
+      ],
+    },
+    {
+      company: "Green River College",
+      role: "Full-Stack Software Engineer Intern",
+      date: "Jan 2025 – May 2025",
+      bullets: [
+        "Developed full-stack web applications using HTML, CSS, PHP, and MySQL.",
+        "Designed and optimized database queries and backend logic.",
+        "Built and maintained RESTful APIs to support dynamic data-driven features.",
+      ],
+    },
+    {
+      company: "CodeDay",
+      role: "Software Engineering Micro-Intern",
+      date: "Oct 2024 – Dec 2024",
+      bullets: [
+        "Developed and maintained JavaScript test suites using Mocha.",
+        "Collaborated with open-source maintainers through GitHub pull requests and code reviews.",
+        "Delivered production-ready contributions successfully merged into the main codebase.",
+      ],
+    },
+    {
+      company: "PACCAR Parts",
+      role: "IT Operations Intern",
+      date: "Jun 2024 – Aug 2024",
+      bullets: [
+        "Built a backend-driven RAG chatbot using Python, REST APIs, and Azure OpenAI.",
+        "Designed data pipelines for structured JSON data, improving system efficiency for 700+ users.",
+        "Integrated Azure cloud and AI services to improve chatbot response accuracy.",
+      ],
+    },
+    {
+      company: "Green River College",
+      role: "Student Help Desk Support",
+      date: "Oct 2022 – Aug 2023",
+      bullets: [
+        "Troubleshot technical issues across Windows, macOS, and campus systems.",
+        "Documented recurring issues and helped improve support workflows.",
+      ],
+    },
+  ];
+  
+  export default function Experience() {
+    return (
+      <section
+        id="experience"
+        className="bg-gray-800 px-4 py-12 sm:px-10 sm:py-16 md:px-20 md:py-20"
+      >
+        <div className="mx-auto max-w-6xl">
+          <h2 className="mb-12 text-3xl font-bold text-white">Experience</h2>
+  
+          <div className="relative ml-6 space-y-10 border-l-2 border-gray-500">
+            {experiences.map((item) => (
+              <div key={`${item.company}-${item.role}`} className="relative pl-8">
+                <div className="absolute -left-[11px] top-1 h-5 w-5 rounded-full border-2 border-white bg-gray-800" />
+  
+                <div className="rounded-lg border bg-white p-6 text-black shadow">
+                  <h3 className="text-xl font-bold">{item.company}</h3>
+                  <p className="mb-4 text-sm italic text-gray-500">
+                    {item.role} | {item.date}
+                  </p>
+  
+                  <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-gray-700">
+                    {item.bullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
                 </div>
-
-                {/* Full-Stack Web Developer Intern  */}
-                <div className="relative pl-8">
-                {/* Bullet */}
-                <div className="absolute -left-[11px] top-1 w-5 h-5 bg-gray-700 border-2 border-white rounded-full"></div>
-                    <div className="bg-gray-50 p-6 rounded-md shadow border text-black overflow-hidden">
-                        <h3 className="text-lg font-semibold">Green River College</h3>
-                        <p className="italic text-sm text-gray-500">Full-Stack Web Developer Intern | Jan 2025 - May 2025</p>
-                        <ul className="list-disc">
-                            <li>Improved IT instruction tools by designing full-stack applications with HTML, CSS, PHP, and MySQL, enhancing usability for students and staff.</li>
-                            <li>Delivered stable and scalable solutions by participating in weekly team reviews, increasing operational efficiency for faculty and student tools.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                {/* CodeDay MicroInternshipe */}
-                <div className="relative pl-8">
-                {/* Bullet */}
-                <div className="absolute -left-[11px] top-1 w-5 h-5 bg-gray-700 border-2 border-white rounded-full"></div>
-                    <div className="bg-gray-50 p-6 rounded-md shadow border text-black overflow-hidden">
-                        <h3 className="text-lg font-semibold">CodeDay</h3>
-                        <p className="italic text-sm text-gray-500">CodeDay MicroInternship | Oct 2024 – Dec 2024</p>
-                        <ul className="list-disc">
-                            <li>Delivered reliable test coverage for OpenEnergyDashboard by implementing JavaScript test cases, resulting in successful merges and improved repository structure.</li>
-                            <li>Increased team efficiency by aligning with agile practices, participating in weekly sprints, and collaborating on tool selection to accelerate delivery.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                {/* IT Operations Intern */}
-                <div className="relative pl-8">
-                {/* Bullet */}
-                <div className="absolute -left-[11px] top-1 w-5 h-5 bg-gray-700 border-2 border-white rounded-full"></div>
-                    <div className="bg-gray-50 p-6 rounded-md shadow border text-black overflow-hidden">
-                        <h3 className="text-lg font-semibold">PACCAR Parts</h3>
-                        <p className="italic text-sm text-gray-500">IT Operations Intern | Jun 2024 – Aug 2024</p>
-                        <ul className="list-disc">
-                            <li>Developed a FAQ chatbot web app for employee ticketing using Azure AI Search, Open AI, and REST APIs, writing 3,000+ lines of Python code in a RAG framework to improve automation.</li>
-                            <li>Boosted team efficiency by integrating scraped JSON data via REST APIs and supporting 700+ users with technical assistance, asset management, and Windows infrastructure support.</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                {/* Student Help Desk Support */}
-                <div className="relative pl-8">
-                {/* Bullet */}
-                <div className="absolute -left-[11px] top-1 w-5 h-5 bg-gray-700 border-2 border-white rounded-full"></div>
-                    <div className="bg-gray-50 p-6 rounded-md shadow border text-black overflow-hidden">
-                        <h3 className="text-lg font-semibold">Green River College</h3>
-                        <p className="italic text-sm text-gray-500">Student Help Desk Support | Oct 2022 – Aug 2023</p>
-                        <ul className="list-disc">
-                            <li>Reduced system downtime by 30% by troubleshooting technical issues on Windows, macOS, and security platforms.</li>
-                            <li>Boosted user satisfaction by documenting recurring issues and optimizing IT workflows, leading to quicker resolutions and fewer repeated errors.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                {/* Expo 2020 Dubai */}
-                <div className="relative pl-8">
-                {/* Bullet */}
-                <div className="absolute -left-[11px] top-1 w-5 h-5 bg-gray-700 border-2 border-white rounded-full"></div>
-                    <div className="bg-gray-50 p-6 rounded-md shadow border text-black overflow-hidden">
-                        <h3 className="text-lg font-semibold">Expo 2020 Dubai</h3>
-                        <p className="italic text-sm text-gray-500">Expo Digital Accreditation System | Sep 2021</p>
-                        <ul className="list-disc">
-                            <li>Developed a secure access system with role-based control, ensuring safe and efficient entry for VVIP guests.</li>
-                            <li>Delivered on-site technical support and maintenance for live high-traffic events.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-    )
-}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
