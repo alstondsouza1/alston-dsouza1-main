@@ -4,9 +4,9 @@ const experiences = [
       role: "Backend Engineer Intern",
       date: "Jun 2025 – Sep 2025",
       bullets: [
-        "Designed and developed scalable backend services using Java, Spring Boot, Spring MVC, and SQL.",
-        "Optimized backend performance through design patterns, unit testing, and code refactoring.",
-        "Collaborated with engineers and product stakeholders in Agile sprint cycles.",
+        "Delivered backend services with Java, Spring Boot, Spring MVC, and SQL to support scalable product workflows.",
+        "Improved service reliability and maintainability by adding unit tests, applying design patterns, and refactoring backend code.",
+        "Moved features from requirements through implementation by collaborating with engineers and product stakeholders in Agile sprint cycles.",
       ],
     },
     {
@@ -14,9 +14,9 @@ const experiences = [
       role: "Full-Stack Software Engineer Intern",
       date: "Jan 2025 – May 2025",
       bullets: [
-        "Developed full-stack web applications using HTML, CSS, PHP, and MySQL.",
-        "Designed and optimized database queries and backend logic.",
-        "Built and maintained RESTful APIs to support dynamic data-driven features.",
+        "Delivered full-stack web features using HTML, CSS, PHP, and MySQL for college-facing applications.",
+        "Improved data retrieval and application responsiveness by optimizing MySQL queries and backend logic.",
+        "Built and maintained RESTful API endpoints that powered dynamic, data-driven user experiences.",
       ],
     },
     {
@@ -24,9 +24,9 @@ const experiences = [
       role: "Software Engineering Micro-Intern",
       date: "Oct 2024 – Dec 2024",
       bullets: [
-        "Developed and maintained JavaScript test suites using Mocha.",
-        "Collaborated with open-source maintainers through GitHub pull requests and code reviews.",
-        "Delivered production-ready contributions successfully merged into the main codebase.",
+        "Expanded JavaScript test coverage with Mocha to catch regressions before release.",
+        "Resolved maintainer feedback through GitHub pull requests and iterative code reviews.",
+        "Delivered production-ready open-source contributions that were accepted and merged into the main codebase.",
       ],
     },
     {
@@ -34,9 +34,9 @@ const experiences = [
       role: "IT Operations Intern",
       date: "Jun 2024 – Aug 2024",
       bullets: [
-        "Built a backend-driven RAG chatbot using Python, REST APIs, and Azure OpenAI.",
-        "Designed data pipelines for structured JSON data, improving system efficiency for 700+ users.",
-        "Integrated Azure cloud and AI services to improve chatbot response accuracy.",
+        "Built a backend-driven RAG chatbot with Python, REST APIs, and Azure OpenAI to streamline internal information retrieval.",
+        "Designed structured JSON data pipelines that supported a more efficient workflow for 700+ users.",
+        "Improved answer relevance by integrating Azure cloud and AI services into the chatbot retrieval pipeline.",
       ],
     },
     {
@@ -44,8 +44,8 @@ const experiences = [
       role: "Student Help Desk Support",
       date: "Oct 2022 – Aug 2023",
       bullets: [
-        "Troubleshot technical issues across Windows, macOS, and campus systems.",
-        "Documented recurring issues and helped improve support workflows.",
+        "Restored access and productivity by troubleshooting Windows, macOS, and campus-system issues.",
+        "Reduced repeated diagnostic work by documenting recurring issues and reusable support procedures.",
       ],
     },
   ];

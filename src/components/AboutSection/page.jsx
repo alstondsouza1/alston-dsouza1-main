@@ -1,17 +1,19 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Instagram, Linkedin, GitHub } from "react-feather";
 
 export default function AboutSection() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.section
       id="about"
       className="bg-white px-6 py-16"
-      initial={{ opacity: 0, y: 40 }}
+      initial={shouldReduceMotion ? false : { opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: shouldReduceMotion ? 0 : 0.6 }}
     >
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-10 md:flex-row">
         <div className="w-full flex-1 space-y-4">

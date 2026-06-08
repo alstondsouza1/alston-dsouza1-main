@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Layout, GitHub } from "react-feather";
 
 const projects = [
@@ -10,7 +10,7 @@ const projects = [
       "A full-stack student support platform for Green River College Running Start students. It includes searchable FAQs, category navigation, admin content management, JWT authentication, and MySQL-backed data storage.",
     tags: ["React", "Node.js", "Express", "MySQL", "JWT"],
     github: "https://github.com/alstondsouza1/Running-start-digital-support",
-    project_site: "",
+    project_site: "https://running-start-portal.vercel.app/",
   },
   {
     title: "Salamander Tracker",
@@ -47,6 +47,8 @@ const projects = [
 ];
 
 export default function Projects() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section
       id="projects"
@@ -57,14 +59,14 @@ export default function Projects() {
 
         <motion.div
           className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
-          initial="hidden"
+          initial={shouldReduceMotion ? false : "hidden"}
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={{
             hidden: {},
             show: {
               transition: {
-                staggerChildren: 0.15,
+                staggerChildren: shouldReduceMotion ? 0 : 0.15,
               },
             },
           }}
@@ -95,15 +97,16 @@ export default function Projects() {
                 ))}
               </div>
 
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-3">
                 {project.project_site && (
                   <a
                     href={project.project_site}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`${project.title} live site`}
+                    className="inline-flex items-center gap-2 rounded border border-gray-600 px-3 py-2 text-sm transition hover:border-blue-300 hover:text-blue-300"
                   >
-                    <Layout className="transition hover:text-blue-300" />
+                    <Layout aria-hidden="true" size={18} />
+                    Live site
                   </a>
                 )}
 
@@ -112,9 +115,10 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`${project.title} GitHub repository`}
+                    className="inline-flex items-center gap-2 rounded border border-gray-600 px-3 py-2 text-sm transition hover:border-purple-400 hover:text-purple-400"
                   >
-                    <GitHub className="transition hover:text-purple-400" />
+                    <GitHub aria-hidden="true" size={18} />
+                    Source code
                   </a>
                 )}
               </div>

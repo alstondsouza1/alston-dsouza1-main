@@ -3,8 +3,10 @@
 import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
+import { reportClientError } from "@/lib/reportClientError";
 
 export default function Contact() {
+  const contactEmail = "alstondsouza35@gmail.com";
   const formRef = useRef(null);
   const recaptchaRef = useRef(null);
 
@@ -85,6 +87,7 @@ export default function Contact() {
       resetForm();
     } catch (error) {
       console.error("EmailJS Full Error:", error);
+      reportClientError(error, { source: "contact-form" });
 
       setStatus(
         error?.text
@@ -106,7 +109,15 @@ export default function Contact() {
 
         <p className="mb-10 max-w-2xl text-sm leading-relaxed text-gray-300">
           Want to connect, collaborate, or ask about my work? Fill out the form
-          below and I will get back to you.
+          below and I will get back to you. If the form is unavailable, email me
+          directly at{" "}
+          <a
+            href={`mailto:${contactEmail}`}
+            className="font-bold text-white underline decoration-gray-500 underline-offset-4 hover:decoration-white"
+          >
+            {contactEmail}
+          </a>
+          .
         </p>
 
         <form
@@ -115,46 +126,68 @@ export default function Contact() {
           className="max-w-3xl space-y-6"
         >
           <div className="grid gap-6 sm:grid-cols-2">
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              placeholder="Name"
-              onChange={handleChange}
-              className="w-full rounded border border-gray-600 bg-gray-800 p-3 text-white outline-none transition placeholder:text-gray-400 focus:border-white"
-              required
-            />
+            <div className="space-y-2">
+              <label htmlFor="contact-name" className="block text-sm text-white">
+                Name
+              </label>
+              <input
+                id="contact-name"
+                type="text"
+                name="name"
+                value={formData.name}
+                autoComplete="name"
+                onChange={handleChange}
+                className="w-full rounded border border-gray-600 bg-gray-800 p-3 text-white outline-none transition focus:border-white"
+                required
+              />
+            </div>
 
+            <div className="space-y-2">
+              <label htmlFor="contact-email" className="block text-sm text-white">
+                Email
+              </label>
+              <input
+                id="contact-email"
+                type="email"
+                name="email"
+                value={formData.email}
+                autoComplete="email"
+                onChange={handleChange}
+                className="w-full rounded border border-gray-600 bg-gray-800 p-3 text-white outline-none transition focus:border-white"
+                required
+              />
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <label htmlFor="contact-subject" className="block text-sm text-white">
+              Subject
+            </label>
             <input
-              type="email"
-              name="email"
-              value={formData.email}
-              placeholder="Email"
+              id="contact-subject"
+              type="text"
+              name="subject"
+              value={formData.subject}
               onChange={handleChange}
-              className="w-full rounded border border-gray-600 bg-gray-800 p-3 text-white outline-none transition placeholder:text-gray-400 focus:border-white"
+              className="w-full rounded border border-gray-600 bg-gray-800 p-3 text-white outline-none transition focus:border-white"
               required
             />
           </div>
 
-          <input
-            type="text"
-            name="subject"
-            value={formData.subject}
-            placeholder="Subject"
-            onChange={handleChange}
-            className="w-full rounded border border-gray-600 bg-gray-800 p-3 text-white outline-none transition placeholder:text-gray-400 focus:border-white"
-            required
-          />
-
-          <textarea
-            name="message"
-            value={formData.message}
-            placeholder="Message"
-            rows="6"
-            onChange={handleChange}
-            className="w-full rounded border border-gray-600 bg-gray-800 p-4 text-white outline-none transition placeholder:text-gray-400 focus:border-white"
-            required
-          />
+          <div className="space-y-2">
+            <label htmlFor="contact-message" className="block text-sm text-white">
+              Message
+            </label>
+            <textarea
+              id="contact-message"
+              name="message"
+              value={formData.message}
+              rows="6"
+              onChange={handleChange}
+              className="w-full rounded border border-gray-600 bg-gray-800 p-4 text-white outline-none transition focus:border-white"
+              required
+            />
+          </div>
 
           <ReCAPTCHA
             ref={recaptchaRef}
@@ -163,11 +196,17 @@ export default function Contact() {
             onExpired={() => setCaptchaToken("")}
           />
 
-          {status && (
-            <p className="rounded border border-gray-700 bg-gray-800 p-3 text-sm text-gray-100">
-              {status}
-            </p>
-          )}
+          <p
+            aria-live="polite"
+            aria-atomic="true"
+            className={
+              status
+                ? "rounded border border-gray-700 bg-gray-800 p-3 text-sm text-gray-100"
+                : "sr-only"
+            }
+          >
+            {status}
+          </p>
 
           <button
             type="submit"
@@ -176,6 +215,13 @@ export default function Contact() {
           >
             {isSending ? "Sending..." : "Send Message"}
           </button>
+
+          <a
+            href={`mailto:${contactEmail}?subject=Portfolio%20inquiry`}
+            className="ml-4 inline-block rounded px-2 py-4 font-bold text-gray-200 underline decoration-gray-500 underline-offset-4 hover:text-white hover:decoration-white"
+          >
+            Email me directly
+          </a>
         </form>
       </div>
     </section>
