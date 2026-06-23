@@ -20,6 +20,9 @@ export const metadata = {
   title: "Alston Dsouza | Software Developer",
   description:
     "Portfolio of Alston Dsouza, a recent software development graduate building full-stack web apps, AI tools, and backend systems.",
+  icons: {
+    icon: "/favicon-simple.svg",
+  },
   keywords: [
     "Alston Dsouza",
     "Software Developer",
