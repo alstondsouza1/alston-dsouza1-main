@@ -6,11 +6,8 @@ import { Layout, GitHub } from "react-feather";
 const projects = [
   {
     title: "Tailor That Resume",
-    bullets: [
-      "Built an AI platform for managing resumes, job posts, applications, and tailored resume exports.",
-      "Used Next.js, TypeScript, PostgreSQL, Prisma, Tailwind CSS, Anthropic Claude, Apify, MCP, and Zod.",
-      "Added ATS keyword extraction, match scoring, secure API credentials, authentication, and application tracking.",
-    ],
+    description:
+      "An AI resume tailoring platform for managing resumes, job posts, applications, and tailored exports. Built with Next.js, TypeScript, PostgreSQL, Prisma, Tailwind CSS, Anthropic Claude, Apify, MCP, and Zod, with ATS keyword extraction, match scoring, authentication, secure API credentials, and application tracking.",
     tags: [
       "Next.js",
       "TypeScript",
@@ -26,55 +23,40 @@ const projects = [
   },
   {
     title: "Running Start Support Portal",
-    bullets: [
-      "Created a student support portal with searchable FAQs, category navigation, and admin content management.",
-      "Built the frontend and backend with React, Node.js, Express, MySQL, and JWT authentication.",
-      "Improved access to Running Start resources by organizing support content in one maintainable system.",
-    ],
+    description:
+      "A student support portal for searchable FAQs, category navigation, and admin content management. Built with React, Node.js, Express, MySQL, and JWT authentication to make Running Start resources easier to find and maintain.",
     tags: ["React", "Node.js", "Express", "MySQL", "JWT"],
     github: "https://github.com/alstondsouza1/Running-start-digital-support",
     project_site: "https://running-start-portal.vercel.app/",
   },
   {
     title: "Salamander Tracker",
-    bullets: [
-      "Built an ecological video-processing pipeline for frame analysis and salamander centroid tracking.",
-      "Connected a React frontend, Node.js backend, Java video processor, JavaCV, and Docker workflow.",
-      "Helped turn raw research footage into structured tracking data for easier analysis.",
-    ],
+    description:
+      "An ecological video-processing pipeline for frame analysis and salamander centroid tracking. It connects a React frontend, Node.js backend, Java video processor, JavaCV, and Docker workflow to turn raw research footage into structured tracking data.",
     tags: ["React", "Node.js", "Java", "Docker", "JavaCV"],
     github: "https://github.com/alstondsouza1/salamander-project",
     project_site: "",
   },
   {
     title: "Ticket Assistant RAG App",
-    bullets: [
-      "Developed a RAG chatbot to help users retrieve internal ticket and workflow information faster.",
-      "Built the assistant with Python, REST APIs, Azure OpenAI, and structured retrieval logic.",
-      "Improved answer relevance and reduced repeated manual lookup for internal support workflows.",
-    ],
+    description:
+      "A RAG chatbot for retrieving internal ticket and workflow information faster. Built with Python, REST APIs, Azure OpenAI, and structured retrieval logic to improve answer relevance and reduce repeated manual lookup.",
     tags: ["Python", "REST APIs", "Azure OpenAI", "RAG"],
     github: "",
     project_site: "",
   },
   {
     title: "RateMyCourse",
-    bullets: [
-      "Built a web app for browsing, reviewing, and discovering golf courses across the United States.",
-      "Used React, Vite, Tailwind CSS, Firebase authentication, Firebase data storage, and Vercel.",
-      "Created a searchable review experience that helps users compare courses before visiting.",
-    ],
+    description:
+      "A web app for browsing, reviewing, and discovering golf courses across the United States. Built with React, Vite, Tailwind CSS, Firebase authentication, Firebase data storage, and Vercel to help users compare courses before visiting.",
     tags: ["React", "Vite", "Tailwind", "Firebase", "Vercel"],
     github: "https://github.com/alstondsouza1/rate-my-course",
     project_site: "https://rate-my-course1.vercel.app/",
   },
   {
     title: "Green or Not",
-    bullets: [
-      "Created a sustainability tool that analyzes Amazon products and generates a green score.",
-      "Built it with Next.js, Tailwind CSS, Axios, Cheerio, and product-detail parsing logic.",
-      "Helped users quickly evaluate eco-friendly signals, keywords, and certifications while shopping.",
-    ],
+    description:
+      "A sustainability tool that analyzes Amazon products and generates a green score. Built with Next.js, Tailwind CSS, Axios, Cheerio, and product-detail parsing logic to help users quickly evaluate eco-friendly signals, keywords, and certifications.",
     tags: ["Next.js", "Tailwind", "Axios", "Cheerio"],
     github: "https://github.com/alstondsouza1/green-or-not",
     project_site: "https://green-or-not2.vercel.app/",
@@ -117,11 +99,9 @@ export default function Projects() {
             >
               <h3 className="mb-4 text-xl font-bold">{project.title}</h3>
 
-              <ul className="mb-5 flex-1 list-disc space-y-2 pl-5 text-sm leading-relaxed text-gray-300">
-                {project.bullets.map((bullet) => (
-                  <li key={bullet}>{bullet}</li>
-                ))}
-              </ul>
+              <p className="mb-5 flex-1 text-sm leading-relaxed text-gray-300">
+                {project.description}
+              </p>
 
               <div className="mb-6 flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
