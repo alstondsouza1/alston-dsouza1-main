@@ -5,6 +5,7 @@ import { Menu, X } from "react-feather";
 
 const navigation = [
   { label: "About", href: "#about", id: "about" },
+  { label: "Skills", href: "#skills", id: "skills" },
   { label: "Experience", href: "#experience", id: "experience" },
   { label: "Education", href: "#education", id: "education" },
   { label: "Projects", href: "#projects", id: "projects" },

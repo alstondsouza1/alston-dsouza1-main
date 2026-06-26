@@ -1,10 +1,12 @@
 import Header from "@/components/Header/page";
 import HeroSection from "@/components/HeroSection/page";
 import AboutSection from "@/components/AboutSection/page";
+import SkillsSection from "@/components/SkillsSection/page";
 import Experience from "@/components/Experience/page";
 import Education from "@/components/Education/page";
 import Projects from "@/components/ProjectCard/page";
 import Contact from "@/components/ContactSection/page";
+import Footer from "@/components/Footer/page";
 
 export default function Home() {
   return (
@@ -21,11 +23,14 @@ export default function Home() {
       <main id="main-content" tabIndex="-1">
         <HeroSection />
         <AboutSection />
+        <SkillsSection />
         <Experience />
         <Education />
         <Projects />
         <Contact />
       </main>
+
+      <Footer />
     </>
   );
 }
